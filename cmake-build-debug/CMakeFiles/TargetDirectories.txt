@@ -1,0 +1,3 @@
+/Users/margarita/CLionProjects/lab1_par_alg/cmake-build-debug/CMakeFiles/lab1_par_alg.dir
+/Users/margarita/CLionProjects/lab1_par_alg/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/margarita/CLionProjects/lab1_par_alg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
