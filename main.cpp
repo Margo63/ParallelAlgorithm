@@ -80,15 +80,42 @@ void read_matrix(std::string name_file, std::vector<std::vector<int>>* matrix) {
 
 int main() {
 
-    std::vector<std::vector<int>> matrix;
+    std::vector<std::vector<int>> matrixA;
 
-    read_matrix("../input.txt", &matrix);
-    for (int i = 0; i < matrix.size(); i++) {
-        for (int j = 0; j < matrix[i].size(); j++) {
-            std::cout<<matrix[i][j]<<" ";
+    read_matrix("../input.txt", &matrixA);
+//    for (int i = 0; i < matrixA.size(); i++) {
+//        for (int j = 0; j < matrixA[i].size(); j++) {
+//            std::cout<<matrixA[i][j]<<" ";
+//        }
+//        std::cout<<"\n";
+//    }
+
+    std::vector<std::vector<int>> matrixB;
+
+    read_matrix("../test.txt", &matrixB);
+//    for (int i = 0; i < matrixB.size(); i++) {
+//        for (int j = 0; j < matrixB[i].size(); j++) {
+//            std::cout<<matrixB[i][j]<<" ";
+//        }
+//        std::cout<<"\n";
+//    }
+
+    std::vector<std::vector<int>> matrixC;
+    for (int i = 0; i < matrixA.size(); i++) {
+        std::vector<int> line;
+        for (int j = 0; j < matrixB[0].size(); j++) {
+            int cur = 0;
+            for (int k = 0; k < matrixB.size(); k++) {
+                cur += matrixA[i][k] * matrixB[k][j];
+            }
+            //line.push_back(cur);
+            std::cout << cur << "\t";
         }
-        std::cout<<"\n";
+        //matrixC.push_back(line);
+
+        std::cout << "\n";
     }
+
 //    pid_t pid_set_info = fork();
 //    pid_t pid_multiplication = fork();
 //    pid_t pid_print_result = fork();
