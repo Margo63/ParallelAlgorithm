@@ -26,7 +26,7 @@ void readMatrix(std::string name_file, std::vector<std::vector<int>> *matrix) {
     std::string line; // Declare a string variable to store each
     std::string size_line;
 
-    getline(file, size_line);
+//    getline(file, size_line);
 //    std::vector<int> result = splitInNum(size_line);
 //    if (result.size() != 2)
 //        return;
