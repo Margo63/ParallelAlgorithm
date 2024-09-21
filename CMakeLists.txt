@@ -3,4 +3,4 @@ project(lab1_par_alg)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(lab1_par_alg main.cpp thread.cpp)
+add_executable(lab1_par_alg main.cpp thread.cpp matrix.cpp matrix.h)

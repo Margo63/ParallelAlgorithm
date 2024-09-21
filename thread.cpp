@@ -2,9 +2,9 @@
 #include <iostream>
 #include <thread>
 
-void my_thread_func(){
-    std::cout<<"Hello from my thread! "<<std::endl;
-}
+//void my_thread_func(){
+//    std::cout<<"Hello from my thread! "<<std::endl;
+//}
 //
 //int main(){
 //
@@ -14,3 +14,4 @@ void my_thread_func(){
 //
 //    return 0;
 //}
+
