@@ -2,7 +2,7 @@
 // Created by Маргарита  on 21.09.2024.
 //
 #include "matrix.h"
-std::vector<int> split_in_num(std::string line) {
+std::vector<int> splitInNum(std::string line) {
     char *copy = const_cast<char *>(line.c_str());
     char *token = std::strtok(copy, " ");
     std::vector<int> result;
@@ -13,7 +13,7 @@ std::vector<int> split_in_num(std::string line) {
     return result;
 }
 
-void read_matrix(std::string name_file, std::vector<std::vector<int>> *matrix) {
+void readMatrix(std::string name_file, std::vector<std::vector<int>> *matrix) {
     std::ifstream file;
     file.open(name_file);
 
@@ -27,14 +27,14 @@ void read_matrix(std::string name_file, std::vector<std::vector<int>> *matrix) {
     std::string size_line;
 
     getline(file, size_line);
-//    std::vector<int> result = split_in_num(size_line);
+//    std::vector<int> result = splitInNum(size_line);
 //    if (result.size() != 2)
 //        return;
 //
 //    int row = result[0], column = result[1];
 
     while (getline(file, line)) {
-        matrix->push_back(split_in_num(line));
+        matrix->push_back(splitInNum(line));
     }
     //std::cout<<"finish read\n";
 
@@ -68,9 +68,9 @@ void print(std::vector<std::vector<int>> matrix) {
     }
 
 }
-void write_to_file(std::vector<std::vector<int>> matrix){
+void writeToFile(std::vector<std::vector<int>> matrix,std::string name_file){
     std::ofstream file;
-    file.open("../output.txt");
+    file.open(name_file);
 
     // Check if the file is successfully opened
     if (!file.is_open()) {
