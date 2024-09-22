@@ -31,9 +31,9 @@ std::vector<std::vector<int>> deserialize(const std::string &stringVector) {
     while (std::getline(data, line)) {
         std::istringstream lineStream(line);
         std::vector<int> row;
-        int val;
-        while (lineStream >> val) {
-            row.push_back(val);
+        int element;
+        while (lineStream >> element) {
+            row.push_back(element);
         }
         vector.push_back(row);
     }
@@ -45,21 +45,20 @@ void processInitializeMatrix(int fdMatrixA, int fdMatrixB) {
     readMatrix("../input.txt", &matrixA);
     readMatrix("../test.txt", &matrixB);
 
-    std::string x = serialize(matrixA);
-    std::string y = serialize(matrixB);
-    write(fdMatrixA, x.c_str(), x.size() + 1);
-    write(fdMatrixB, y.c_str(), y.size() + 1);
+    std::string serializedMatrixA = serialize(matrixA);
+    std::string serializedMatrixB = serialize(matrixB);
+    write(fdMatrixA, serializedMatrixA.c_str(), serializedMatrixA.size() + 1);
+    write(fdMatrixB, serializedMatrixB.c_str(), serializedMatrixB.size() + 1);
 }
 
 void processMultiplitacionMatrix(int fdMatrixA, int fdMatrixB, int fdMatrixC) {
-    char buffer[1024];
+    char bufferMatrixA[1024];
+    read(fdMatrixA, &bufferMatrixA, sizeof(bufferMatrixA));
+    std::string matrixAData(bufferMatrixA);
 
-    read(fdMatrixA, &buffer, sizeof(buffer));
-    std::string matrixAData(buffer);
-
-    char buffer2[1024];
-    read(fdMatrixB, &buffer2, sizeof(buffer2));
-    std::string matrixBData(buffer2);
+    char bufferMatrixB[1024];
+    read(fdMatrixB, &bufferMatrixB, sizeof(bufferMatrixB));
+    std::string matrixBData(bufferMatrixB);
 
     std::vector<std::vector<int>> matrixA = deserialize(matrixAData);
     std::vector<std::vector<int>> matrixB = deserialize(matrixBData);
@@ -69,8 +68,8 @@ void processMultiplitacionMatrix(int fdMatrixA, int fdMatrixB, int fdMatrixC) {
     //print(matrixB);
     std::vector<std::vector<int>> matrixC;
     multiplication(matrixA, matrixB, &matrixC);
-    std::string c = serialize(matrixC);
-    write(fdMatrixC, c.c_str(), c.size() + 1);
+    std::string serializedMatrixC = serialize(matrixC);
+    write(fdMatrixC, serializedMatrixC.c_str(), serializedMatrixC.size() + 1);
 }
 
 void processWriteResult(int fdMatrixC) {

@@ -2,6 +2,7 @@
 // Created by Маргарита  on 21.09.2024.
 //
 #include "matrix.h"
+//get vector from line
 std::vector<int> splitInNum(std::string line) {
     char *copy = const_cast<char *>(line.c_str());
     char *token = std::strtok(copy, " ");
@@ -17,22 +18,12 @@ void readMatrix(std::string name_file, std::vector<std::vector<int>> *matrix) {
     std::ifstream file;
     file.open(name_file);
 
-    // Check if the file is successfully opened
     if (!file.is_open()) {
         std::cout << "Error opening the file!\n";
         return;
     }
 
-    std::string line; // Declare a string variable to store each
-    std::string size_line;
-
-//    getline(file, size_line);
-//    std::vector<int> result = splitInNum(size_line);
-//    if (result.size() != 2)
-//        return;
-//
-//    int row = result[0], column = result[1];
-
+    std::string line;
     while (getline(file, line)) {
         matrix->push_back(splitInNum(line));
     }
@@ -72,7 +63,6 @@ void writeToFile(std::vector<std::vector<int>> matrix,std::string name_file){
     std::ofstream file;
     file.open(name_file);
 
-    // Check if the file is successfully opened
     if (!file.is_open()) {
         std::cout << "Error opening the file!\n";
         return;

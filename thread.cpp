@@ -13,7 +13,6 @@ void threadInitializeMatrix(std::vector<std::vector<int>>* matrixA, std::vector<
     readMatrix("../test.txt", matrixB);
     flagInitializationDone=true;
     data_cond.notify_one();
-
 }
 void threadMultiplitacionMatrix(std::vector<std::vector<int>>* matrixA, std::vector<std::vector<int>>* matrixB,std::vector<std::vector<int>>* matrixC){
     std::unique_lock<std::mutex> ul(m);
