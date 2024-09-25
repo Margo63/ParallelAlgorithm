@@ -52,11 +52,11 @@ void processInitializeMatrix(int fdMatrixA, int fdMatrixB) {
 }
 
 void processMultiplitacionMatrix(int fdMatrixA, int fdMatrixB, int fdMatrixC) {
-    char bufferMatrixA[1024];
+    char bufferMatrixA[100000];
     read(fdMatrixA, &bufferMatrixA, sizeof(bufferMatrixA));
     std::string matrixAData(bufferMatrixA);
 
-    char bufferMatrixB[1024];
+    char bufferMatrixB[100000];
     read(fdMatrixB, &bufferMatrixB, sizeof(bufferMatrixB));
     std::string matrixBData(bufferMatrixB);
 

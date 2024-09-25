@@ -53,7 +53,7 @@ int main(){
 
     std::thread myThreads[n*m];
 
-    int amountOfThread = n*m;
+    int amountOfThread = 2;//n*m;
     int step = n*m/amountOfThread;
     std::vector<std::pair<int,int>> amountOfElements;
     int k=0;
